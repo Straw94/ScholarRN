@@ -1,49 +1,50 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React, { Component } from 'react';
+import { PixelRatio, Dimensions} from 'react-native';
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import { Provider } from 'react-redux';
+import Screen from './src/Screen/index';
+import configureStore from './src/Redux/index';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+const pt2px = pt=>PixelRatio.getPixelSizeForLayoutSize(pt);
+const px2pt = px=>PixelRatio.roundToNearestPixel(px);
+let pxRatio = PixelRatio.get();
+let {win_width,win_height} = Dimensions.get("window");
 
-type Props = {};
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
-  }
+let scale = 1/pxRatio;
+let width = pt2px(win_width);
+let height = pt2px(win_height);
+const styles= {
+    container: {
+        width: width,
+        height: height,
+        backgroundColor: 'transparent',
+        transform: [{translateX: -width * .5},
+            {translateY: -height * .5},
+            {scale: scale},
+            {translateX: width * .5},
+            {translateY: height * .5}]
+    },
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+const store = configureStore();
+class App extends Component {
+    render() {
+        return (
+            <Provider store={store}>
+                <Screen sytle={styles.container}></Screen>
+            </Provider>
+        )
+    }
+}
+
+export default App
+
+
+
+
+
+
+
+
+
+
