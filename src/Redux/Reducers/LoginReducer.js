@@ -4,6 +4,7 @@ const initial = {
     status:null,
     data:{},
 }
+// 监听dispatch 方法触发
 const LoginReducer = function(state = initial, action) {
     switch(action.type) {
         case "LOGIN_PENDING":

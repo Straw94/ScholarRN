@@ -14,7 +14,6 @@ const reducers = combineReducers({
 })
 
 
-
 export default () => {
     const sagaMiddleware = createSagaMiddleware();
     const store = createStore(

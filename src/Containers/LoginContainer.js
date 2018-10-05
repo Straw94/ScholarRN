@@ -170,7 +170,7 @@ const mapStateToProps = (state) => ({
     isLoading: state.LoginReducer.loading
 })
 const mapDispatchToProps = (dispatch) => ({
-    login: (user) => dispatch(loginAction(user)),
+    login: (user) => dispatch(loginAction(user)), // 通过redux dispatch触发reducer
     bgImg: (status) => {
         dispatch(changeImage(status))
     }
