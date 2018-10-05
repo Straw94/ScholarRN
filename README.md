@@ -73,5 +73,11 @@
 ```页面划分模块```
 
 
+```
+本次示例的结构分为三层
+screen ---- 页面  （整合container）
+container ---- 容器 （组装components 处理业务逻辑与数据交互）
+components ---- 组件 （只负责显示）
+
 
 
