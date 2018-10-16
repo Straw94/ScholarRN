@@ -13,7 +13,7 @@
 >>> 建议下载0.44.3  -----  react-native init MyApp --version 0.44.3
 >>
 >> NodeServer
->>>本文涉及到的登陆接口 可以下载 https://github.com/tobescholar/ScholarRN-Node 模拟
+>>>本文涉及到的登陆接口 可以下载 https://github.com/tobescholar/ScholarRN-Node 模拟 账号admin 密码123456
 >>
 >> 如果有问题可以使用邮箱留言... anranemails@163.com
 >>> 小编也是费了好久的时间才运行起来、 希望大家在使用的时候稍安勿躁一步一步解决
@@ -81,6 +81,8 @@
 screen ---- 页面  （整合container）
 container ---- 容器 （组装components 处理业务逻辑与数据交互）
 components ---- 组件 （只负责显示）
+
+
 
 
 
